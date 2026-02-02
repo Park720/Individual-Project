@@ -1,0 +1,30 @@
+.postCard {
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    background-color: #2b2a2a;
+    margin-bottom: 24px;
+    max-width: 470px;
+    overflow: hidden;
+    color: #ffffff;
+}
+.header {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    gap: 12px;
+}
+.username {
+    font-weight: 600;
+    font-size: 14px;
+}
+.imageContainer {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #8e8e8e;
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+}

@@ -1,0 +1,35 @@
+.nav {
+    width: 100%;
+    border-bottom: 1px solid #525252;
+    background-color: #525252;
+    position: sticky;
+    justify-content: center;
+    top: 0;
+    z-index: 10;
+}
+.container {
+    max-width: 935px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 20px;
+}
+.logo {
+    font-family: 'serif';
+    font-size: 24px;
+}
+.search {
+    background-color: #efefef;
+    border: none;
+    padding: 7px 15px;
+    border-radius: 8px;
+    outline: none;
+}
+.icons {
+    display: flex; /*will be replaced with icons later*/
+    gap: 20px;
+    font-size: 22px;
+    cursor: pointer;
+}
