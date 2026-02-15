@@ -1,39 +1,35 @@
-.container {
-    padding: 12px;
-}
-.reaction {
-    display: flex;
-    gap: 15px;
-    font-size: 24px;
-    margin-bottom: 8px;
-    cursor: pointer;
-}
-.comments {
-    font-size: 14px;
-    line-height: 1.5;
-}
-.viewAll {
-    color: #8e8e8e;
-    cursor: pointer;
-    font-size: 14px;
-    margin-top: 5px;
-}
-.inputComment {
-    border-top: 1px solid #efefef;
-    margin-top: 12px;
-    padding: 12px 0 5px 0;
-    display: flex;
-}
-.input {
+.likedHeart {
+    color: red;
     border: none;
+    background: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.emptyHeart {
+    color: black;
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.commentForm {
+    display: flex;
+    border-top: 1px solid #dbdbdb;
+    padding: 10px 0;
+}
+
+.commentInput {
     flex-grow: 1;
-    outline: none;
-    font-size: 14px;
-}
-.postBtn {
     border: none;
-    background-color: transparent;
+    outline: none;
+}
+
+.submitBtn {
+    background: none;
+    border: none;
     color: #0095f6;
-    font-weight: 600;
+    font-weight: bold;
     cursor: pointer;
 }

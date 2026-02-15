@@ -1,17 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
 function Navbar() {
     return (
-        <div className={styles.nav}>
-            <div className={styles.container}>
-                <h2 className={styles.logo}>Instagram</h2>
-                <input type="text" placeholder="Search" className={styles.search} />
+        <nav className={styles.nav}>
+                <div className={styles.container}>
+                    <Link to="/" className={styles.logo}>Instagram</Link>
+                <input type="text" placeholder="search" className={styles.search} />
                 <div className={styles.icons}>
-                    <div>Home</div> <div>Search</div> <div>Profile</div>
+                    <Link to="/">⌂ Home</Link>
+                    <Link to="/search">⌕ Search</Link>
+                    <Link to="/profile">ጸ Profile</Link>
                 </div>
             </div>
-        </div>
+        </nav>
     );
 }
 

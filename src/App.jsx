@@ -1,27 +1,25 @@
 import React from 'react';
+import { useState } from 'react';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Post from './components/Post';
 import styles from './App.module.css';
+import Home from './pages/Home';
+import Serach from './pages/Search';
+import Profile from './pages/Profile';
+
 
 function App() {
 return (
+  <HashRouter>
     <div className={styles.container}>
       <Navbar />
-      <div className={styles.content}>
-        <div className={styles.feed}>
-          <Post 
-            username="Junhyung Park" 
-            location="Seoul, Korea" 
-            detail="아 배고프다"
-          />
-          <Post 
-            username="Park Junhyung" 
-            location="West Lafayette, IN" 
-            detail="아 졸리다"
-          />
-        </div>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/search" element={<Serach />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
     </div>
+  </HashRouter>
   );
 }
 

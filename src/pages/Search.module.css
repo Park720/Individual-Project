@@ -1,0 +1,60 @@
+.searchPage {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.userContainer {
+    margin-bottom: 20px;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #dbdbdb;
+    background-color: #efefef;
+    font-size: 16px;
+    }
+
+.userItem {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    cursor: pointer;
+}
+
+.userImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #dbdbdb;
+    margin-right: 15px;
+}
+
+.userBox {
+    display: flex;
+    vertical-align: middle;
+    flex-direction: column;
+}
+
+.userId {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.userName {
+    font-size: 14px;
+    color: #8e8e8e;
+}
+
+.userBio {
+    font-size: 12px;
+    color: #8e8e8e;
+}
+
+.notFound {
+    text-align: center;
+    color: #8e8e8e;
+    margin-top: 50px;
+}
