@@ -1,0 +1,203 @@
+.profilePage {
+    width: 100%;
+    max-width: 470px;
+    padding: 20px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.profileHeader {
+    display: flex;
+    gap: 24px;
+    padding: 0 16px 24px 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.avatarWrapper {
+    flex-shrink: 0;
+}
+
+.avatar {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 600;
+    color: white;
+}
+
+.profileInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.usernameRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.username {
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--text-primary);
+}
+
+.editBtn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    transition: background-color 0.15s;
+}
+
+.editBtn:hover {
+    background-color: var(--surface-2);
+}
+
+.statsRow {
+    display: flex;
+    gap: 28px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.statNum {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.statLabel {
+    font-size: 13px;
+    color: var(--text-primary);
+}
+
+.bio {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.displayName {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+.bio p {
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+}
+
+.tab {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 12px 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-top: 2px solid transparent;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    transition: color 0.15s;
+}
+
+.activeTab {
+    color: var(--text-primary);
+    border-top: 2px solid var(--text-primary);
+}
+
+/* ── 포스트 그리드 ── */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    margin-top: 3px;
+}
+
+.gridItem {
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    background-color: var(--surface-2);
+    cursor: pointer;
+}
+
+.gridImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.15s;
+}
+
+.gridImg:hover {
+    opacity: 0.85;
+}
+
+.gridPlaceholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.gridDetail {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-align: center;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/* ── 빈 상태 ── */
+.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    gap: 8px;
+}
+
+.emptyIcon {
+    font-size: 40px;
+}
+
+.emptyText {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.emptySubText {
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-align: center;
+}

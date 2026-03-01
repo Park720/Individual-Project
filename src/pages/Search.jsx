@@ -1,28 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import styles from './Search.module.css';
 
 const USER_DATA = [
-    { id: '1', name: 'Junhyung Park', bio: 'Game Developer' },
-    { id: '2', name: 'John Doe', bio: 'Frontend Developer' },
-    { id: '3', name: 'Alpha Beta', bio: 'Math Developer' },
-    { id: '4', name: 'Boiler Class', bio: 'Backend Developer' },
-    { id: '5', name: 'Like Lion', bio: 'Web Application Developer' },
+    { id: '1', name: 'Junhyung Park', bio: 'junhyung_p' },
+    { id: '2', name: 'John Doe', bio: 'john_d_oe' },
+    { id: '3', name: 'Alpha Beta', bio: 'a_bbb' },
+    { id: '4', name: 'Boiler Class', bio: 'b_class' },
+    { id: '5', name: 'Like Lion', bio: 'l_lion_ike' },
 ];
 
 function Search() {
-
     const [searchUser, setSearchUser] = useState("");
-    const filteredUsers = USER_DATA.filter((user) =>
-        user.id.toLowerCase().includes(searchUser.toLowerCase()) ||
-        user.name.toLowerCase().includes(searchUser.toLowerCase())
-    );
+
+    useDocumentTitle('Instagram - Search');
+
+    const filteredUsers = useMemo(() =>
+        USER_DATA.filter(user =>
+            user.id.toLowerCase().includes(searchUser.toLowerCase()) ||
+            user.name.toLowerCase().includes(searchUser.toLowerCase())
+        ),
+    [searchUser]);
 
     return (
         <div className={styles.searchPage}>
             <div className={styles.userContainer}>
-                <input 
-                    type="text" 
-                    placeholder="search" 
+                <input
+                    type="text"
+                    placeholder="search"
                     className={styles.searchInput}
                     value={searchUser}
                     onChange={(event) => setSearchUser(event.target.value)}
@@ -41,7 +46,7 @@ function Search() {
                         </div>
                     ))
                 ) : (
-                <p className={styles.notFound}>검색 결과가 없습니다.</p>
+                    <p className={styles.notFound}>No User Found.</p>
                 )}
             </div>
         </div>

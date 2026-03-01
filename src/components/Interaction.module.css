@@ -1,35 +1,129 @@
-.likedHeart {
-    color: red;
-    border: none;
-    background: none;
-    font-size: 1.5rem;
-    cursor: pointer;
+.interactionContainer {
+    padding: 4px 4px 12px 4px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: var(--surface);
+    transition: background-color 0.2s ease;
 }
 
-.emptyHeart {
-    color: black;
-    border: none;
+.iconSection {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 0 4px 0;
+}
+
+.iconBtn {
     background: none;
-    font-size: 1.5rem;
+    border: none;
     cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    color: var(--text-primary);
+}
+
+.iconBtn svg {
+    transition: transform 0.15s ease;
+    stroke: var(--text-primary);
+}
+
+.iconBtn:hover svg {
+    transform: scale(1.1);
+}
+
+.iconBtn.liked svg {
+    fill: #ed4956;
+    stroke: #ed4956;
+}
+
+.spacer { flex: 1; }
+
+.likeCount {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: block;
+    padding: 4px 0;
+}
+
+.description {
+    font-size: 14px;
+    color: var(--text-primary);
+    padding: 2px 0 6px 0;
+    line-height: 1.5;
+}
+
+.description strong {
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+.commentList {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-bottom: 4px;
+}
+
+.commentItem {
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.commentItem strong {
+    font-weight: 600;
+    margin-right: 6px;
 }
 
 .commentForm {
     display: flex;
-    border-top: 1px solid #dbdbdb;
-    padding: 10px 0;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+    margin-top: 6px;
 }
 
 .commentInput {
     flex-grow: 1;
+    background: none;
     border: none;
     outline: none;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.commentInput::placeholder {
+    color: var(--text-secondary);
 }
 
 .submitBtn {
     background: none;
     border: none;
     color: #0095f6;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 14px;
     cursor: pointer;
+    opacity: 0.4;
+    transition: opacity 0.15s;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.submitBtn.active {
+    opacity: 1;
+}
+
+.saved svg {
+    fill: var(--text-primary);
+    stroke: var(--text-primary);
+}
+
+.iconCount {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-right: 12px;
+    line-height: 1;
 }
