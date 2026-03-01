@@ -23,6 +23,9 @@ function Home() {
                         detail={post.detail}
                         image={post.image}
                         timeAgo={post.timeAgo}
+                        comments={post.comments}
+                        likes={post.likes}
+                        likedBy={post.likedBy}
                     />
                 ))}
             </div>

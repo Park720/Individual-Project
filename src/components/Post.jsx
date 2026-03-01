@@ -1,11 +1,11 @@
-import React, { useState, memo } from 'react';
+import { useState, memo } from 'react';
 import styles from './Post.module.css';
 import Interaction from './Interaction';
 import { usePosts } from '../context/PostsContext';
 
 const MY_USERNAME = 'junhyung_park';
 
-const Post = memo(function Post({ id, username, location, detail, image, timeAgo = '5h' }) {
+const Post = memo(function Post({ id, username, location, detail, image, timeAgo = '5h', comments = [], likes = 0, likedBy = [] }) {
     const { deletePost } = usePosts();
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -13,9 +13,7 @@ const Post = memo(function Post({ id, username, location, detail, image, timeAgo
     const isMyPost = username === MY_USERNAME;
 
     const handleDelete = () => {
-        if (window.confirm('Delete?')) {
-            deletePost(id);
-        }
+        if (window.confirm('Delete this post?')) deletePost(id);
         setMenuOpen(false);
     };
 
@@ -40,9 +38,9 @@ const Post = memo(function Post({ id, username, location, detail, image, timeAgo
                                 <div className={styles.menuOverlay} onClick={() => setMenuOpen(false)} />
                                 <div className={styles.menu}>
                                     {isMyPost && (
-                                        <button className={styles.menuItemDelete} onClick={handleDelete}>삭제</button>
+                                        <button className={styles.menuItemDelete} onClick={handleDelete}>Delete</button>
                                     )}
-                                    <button className={styles.menuItem} onClick={() => setMenuOpen(false)}>취소</button>
+                                    <button className={styles.menuItem} onClick={() => setMenuOpen(false)}>Cancel</button>
                                 </div>
                             </>
                         )}
@@ -57,7 +55,14 @@ const Post = memo(function Post({ id, username, location, detail, image, timeAgo
                 }
             </div>
 
-            <Interaction id={id} username={username} detail={detail} />
+            <Interaction
+                id={id}
+                username={username}
+                detail={detail}
+                comments={comments}
+                likes={likes}
+                likedBy={likedBy}
+            />
         </div>
     );
 });

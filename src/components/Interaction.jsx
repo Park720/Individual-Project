@@ -3,52 +3,50 @@ import styles from './Interaction.module.css';
 import { usePosts } from '../context/PostsContext';
 import { HeartIcon, CommentIcon, ShareIcon, BookmarkIcon } from './Icons';
 
-function Interaction({ id, username, detail }) {
-    const { savedPostIds, savePost, unsavePost } = usePosts();
+const MY_USERNAME = 'junhyung_park';
 
-    const [likes, setLikes]             = useState(0);
-    const [liked, setLiked]             = useState(false);
-    const [comment, setComment]         = useState('');
-    const [commentList, setCommentList] = useState([]);
+function Interaction({ id, username, detail, comments = [], likes = 0, likedBy = [] }) {
+    const { savedPostIds, savePost, unsavePost, addComment, toggleLike } = usePosts();
 
-    const isSaved    = savedPostIds.includes(id);
-    const handleLike = () => { setLikes(liked ? likes - 1 : likes + 1); setLiked(!liked); };
-    const handleSave = () => isSaved ? unsavePost(id) : savePost(id);
+    const [comment, setComment] = useState('');
+
+    const isSaved = savedPostIds.includes(id);
+    const isLiked = likedBy.includes(MY_USERNAME); 
+
     const handleCommentUpload = (e) => {
         e.preventDefault();
         if (!comment.trim()) return;
-        setCommentList([...commentList, comment]);
+        addComment(id, comment.trim());
         setComment('');
     };
 
     return (
         <div className={styles.interactionContainer}>
             <div className={styles.iconSection}>
-
-                <button onClick={handleLike} className={`${styles.iconBtn} ${liked ? styles.liked : ''}`}>
-                    <HeartIcon filled={liked} />
+                <button onClick={() => toggleLike(id)} className={`${styles.iconBtn} ${isLiked ? styles.liked : ''}`}>
+                    <HeartIcon filled={isLiked} />
                 </button>
                 {likes > 0 && <span className={styles.iconCount}>{likes}</span>}
 
                 <button className={styles.iconBtn}>
                     <CommentIcon />
                 </button>
-                {commentList.length > 0 && <span className={styles.iconCount}>{commentList.length}</span>}
+                {comments.length > 0 && <span className={styles.iconCount}>{comments.length}</span>}
 
                 <button className={styles.iconBtn}><ShareIcon /></button>
                 <div className={styles.spacer} />
-                <button onClick={handleSave} className={`${styles.iconBtn} ${isSaved ? styles.saved : ''}`}>
+                <button onClick={() => isSaved ? unsavePost(id) : savePost(id)} className={`${styles.iconBtn} ${isSaved ? styles.saved : ''}`}>
                     <BookmarkIcon filled={isSaved} />
                 </button>
             </div>
 
             <div className={styles.description}><strong>{username}</strong> {detail}</div>
 
-            {commentList.length > 0 && (
+            {comments.length > 0 && (
                 <div className={styles.commentList}>
-                    {commentList.map((item, index) => (
+                    {comments.map((item, index) => (
                         <p key={index} className={styles.commentItem}>
-                            <strong>junhyung</strong> {item}
+                            <strong>{MY_USERNAME}</strong> {item}
                         </p>
                     ))}
                 </div>
